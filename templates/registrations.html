@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}"></head>
+<body>
+    <div class="navbar">
+        <ul class="navbar_ul">
+            <li class="navbar_li"><a href="/" class="navbar_a">Home</a></li>
+            <li class="navbar_li"><a href="/events.html" class="navbar_a">Find Event</a></li>
+            <li class="navbar_li"><a href="/form_template.html" class="navbar_a">Create Event</a></li>
+            {% if 'email' in session %}
+                <li class="navbar_li"  ><a href="/dashboard" class="navbar_a">Dashboard</a></li>
+                <li class="navbar_li"  ><a href="/logout" class="navbar_a">Logout</a></li>
+            {% else %}
+                <li class="navbar_li"  ><a href="/login.html" class="navbar_a">Login</a></li>
+                <li class="navbar_li"  ><a href="/signup.html" class="navbar_a">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Registrations</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <form method="GET" action="{{ url_for('registrationsfilter', event_id=event_id)}}">
+                    <th scope="col">Sno.</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Year
+                        <select name="year" id="year">
+                            <option value=""></option>
+                            <option value="1" {% if request.args.get('year') == '1' %}selected{% endif %}>1</option>
+                            <option value="2" {% if request.args.get('year') == '2' %}selected{% endif %}>2</option>
+                            <option value="3" {% if request.args.get('year') == '3' %}selected{% endif %}>3</option>
+                            <option value="4" {% if request.args.get('year') == '4' %}selected{% endif %}>4</option>
+                            </select>
+                    </th>
+                    <th scope="col">Branch
+                        <select name="branch" id="branch">
+                            <option value=""></option>
+                            <option value="CSE" {% if request.args.get('branch') == 'CSE' %}selected{% endif %}>CSE</option>
+                            <option value="CSDS" {% if request.args.get('branch') == 'CSDS' %}selected{% endif %}>CSDS</option>
+                            <option value="CSM" {% if request.args.get('branch') == 'CSM' %}selected{% endif %}>CSM</option>
+                            <option value="IT" {% if request.args.get('branch') == 'IT' %}selected{% endif %}>IT</option>
+                            <option value="CSBS" {% if request.args.get('branch') == 'CSBS' %}selected{% endif %}>CSBS</option>
+                            <option value="ECE" {% if request.args.get('branch') == 'ECE' %}selected{% endif %}>ECE</option>
+                            <option value="MECH" {% if request.args.get('branch') == 'MECH' %}selected{% endif %}>MECH</option>
+                            <option value="CIVIL" {% if request.args.get('branch') == 'CIVIL' %}selected{% endif %}>CIVIL</option>
+                            </select>
+                    </th>
+                    <th scope="col">Section
+                        <select name="section" id="section">
+                            <option value=""></option>
+                            <option value="A" {% if request.args.get('section') == 'A' %}selected{% endif %}>A</option>
+                            <option value="B" {% if request.args.get('section') == 'B' %}selected{% endif %}>B</option>
+                            <option value="C" {% if request.args.get('section') == 'C' %}selected{% endif %}>C</option>
+                            <option value="D" {% if request.args.get('section') == 'D' %}selected{% endif %}>D</option>
+                            <option value="E" {% if request.args.get('section') == 'E' %}selected{% endif %}>E</option>
+                            <option value="F" {% if request.args.get('section') == 'F' %}selected{% endif %}>F</option>
+                            </select>
+                    </th>
+                    <th>
+                        <button type="submit">Filter</button>
+                    </th>
+                    </form>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registration in registrations %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ registration.id }}</td>
+                    <td>{{ registration.name }}</td>
+                    <td>{{ registration.email }}</td>
+                    <td>{{ registration.phone }}</td>
+                    <td>{{ registration.year }}</td>
+                    <td>{{ registration.branch }}</td>
+                    <td>{{ registration.section }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

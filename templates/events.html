@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <ul class="navbar_ul">
+            <li class="navbar_li"><a href="/" class="navbar_a">Home</a></li>
+            <li class="navbar_li"><a href="/events.html" class="navbar_a">Find Event</a></li>
+            <li class="navbar_li"><a href="/form_template.html" class="navbar_a">Create Event</a></li>
+            {% if 'email' in session %}
+                <li class="navbar_li"><a href="/dashboard" class="navbar_a">Dashboard</a></li>
+                <li class="navbar_li"  ><a href="/logout" class="navbar_a">Logout</a></li>
+            {% else %}
+                <li class="navbar_li"  ><a href="/login.html" class="navbar_a">Login</a></li>
+                <li class="navbar_li"  ><a href="/signup.html" class="navbar_a">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="container mt-4">
+        <h1 class="mb-4">Events</h1>
+        <ul class="list-group">
+            {% for event in events %}
+                <li class="list-group-item">
+                    <h5 class="mb-1">{{ event.eventname }}</h5>
+                    <p class="mb-1">Date: {{ event.eventDate }}</p>
+                    <p class="mb-1">Location: {{ event.Location }}</p>
+                    <p class="mb-1">Description: {{ event.Description }}</p>
+                    <p class="mb-1">Organizer: {{ event.Organizer }}</p>
+                    <p class="mb-1">Contact Phone: {{ event.ContactPhone }}</p>
+                    <button onclick="window.location.href='{{ url_for('register') }}'" class="btn btn-primary">Register</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

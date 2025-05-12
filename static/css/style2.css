@@ -1,0 +1,33 @@
+
+#p1{
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    font-size: xx-large;
+    text-align: center;
+    background-color: #4477CE;
+    width:250px;
+    margin-top: 10px;
+    margin-left: 65px;
+    border-radius: 10px;
+}
+#login{
+    margin-top: 80px;
+    border: solid 3px #35155D;
+    border-radius: 10px;
+    width:400px;
+    height:400px;
+    text-align:center;
+    float:left;
+}
+img{
+    margin-top: 80px;
+    width:400px;
+    height: 400px;;
+}
+.submitb{
+    background-color: #35155D;
+    color:white;
+    border-radius: 10px;
+    width:100px;
+    height:40px;
+}
