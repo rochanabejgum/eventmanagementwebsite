@@ -20,4 +20,3 @@ Built using **Python (Flask Framework)**, **MySQL**, **HTML**, and **CSS**.
 - **Backend**: Python (Flask)
 - **Database**: MySQL
 - **Frontend**: HTML, CSS
-
