@@ -15,6 +15,6 @@ Built using **Python (Flask Framework)**, **MySQL**, **HTML**, and **CSS**.
 
 
 ## Tech Stack
-- **Backend**: Python (Flask)
+- **Backend**: Python(Flask)
 - **Database**: MySQL
 - **Frontend**: HTML, CSS

@@ -13,7 +13,7 @@ app.secret_key = secret_key
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '****',
+    'password': '*****', #change based on your database password
     'database': 'eventify'
 }
 
