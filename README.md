@@ -3,7 +3,6 @@
 A web application where users can **host events** and **register for them**.  
 Built using **Python (Flask Framework)**, **MySQL**, **HTML**, and **CSS**.
 
----
 
 ## Features
 - **User Login System**: Users can sign up and log in with credentials stored in the database.
@@ -14,7 +13,6 @@ Built using **Python (Flask Framework)**, **MySQL**, **HTML**, and **CSS**.
   - View all events the user has registered for.
   - See event details for hosted events (including number of registrations and participant details).
 
----
 
 ## Tech Stack
 - **Backend**: Python (Flask)
